@@ -18,12 +18,8 @@
       <Dielectrics>
         <Dielectric Name="AIR" Material="AIR" Thickness="300.0000" />
         <Dielectric Name="NITRPASS" Material="NITR" Thickness="0.3" />
-        <Dielectric Name="OXPASS" Material="SIO2" Thickness="2.3925" />
-        <Dielectric Name="IMD4" Material="SIO2" Thickness="1.45" />
-        <Dielectric Name="IMD3" Material="SIO2" Thickness="1.15" />
-        <Dielectric Name="IMD2" Material="SIO2" Thickness="1.15" />
-        <Dielectric Name="IMD1" Material="SIO2" Thickness="1.15" />
-        <Dielectric Name="ILD" Material="SIO2" Thickness="0.086" />
+		<!-- MIDOX = ILD + IMD + OXPASS -->
+		<Dielectric Name="MIDOX" Material="SIO2" Thickness="7.3785" />
         <Dielectric Name="NITRLN" Material="NITR" Thickness="0.05" />
         <Dielectric Name="STI" Material="SIO2" Thickness="0.32" />
 	<Dielectric Name="Substrate" Material="Substrate" Thickness="191.9205" />
@@ -40,9 +36,9 @@
         <Layer Name="M4" Type="conductor" Zmin="4.68" Zmax="5.23" Material="M" Layer="46" />
 		<Layer Name="MIM_DK" Type="conductor" Zmin="5.23" Zmax="5.54" Material="MIM_equiv" Layer="75"/>
         <Layer Name="TPMIM" Type="conductor" Zmin="5.54" Zmax="5.625" Material="MIMM" Layer="75" />
-        <Layer Name="VMIM" Type="via" Zmin="5.625" Zmax="6.13" Material="M" Layer="41" />
+        <Layer Name="VMIM" Type="via" Zmin="5.625" Zmax="6.13" Material="M" Layer="1041" />
 		<Layer Name="TV" Type="via" Zmin="5.23" Zmax="6.13" Material="TV" Layer="41" />
-        <Layer Name="TM" Type="conductor" Zmin="6.13" Zmax="7.3225" Material="TM" Layer="53" />
+        <Layer Name="TM" Type="conductor" Zmin="6.13" Zmax="7.3225" Material="TM" Layer="81" />
       </Layers>
     </ELayers>
   </Stackup>
