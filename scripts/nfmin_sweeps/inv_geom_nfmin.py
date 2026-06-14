@@ -1,8 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
-jd = pd.read_csv("inv_geom_jd.txt", sep=r"\s+")
-nf = pd.read_csv("inv_geom_nf.txt", sep=r"\s+")
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent.parent
+
+RESULTS_DIR = REPO_ROOT / "results" / "nfmin_sweeps"
+
+jd = pd.read_csv(RESULTS_DIR / "inv_geom_jd.txt", sep=r"\s+")
+nf = pd.read_csv(RESULTS_DIR / "inv_geom_nf.txt", sep=r"\s+")
 
 data = pd.merge(
     jd,
