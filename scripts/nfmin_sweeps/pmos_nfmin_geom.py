@@ -7,8 +7,8 @@ REPO_ROOT = SCRIPT_DIR.parent.parent
 
 RESULTS_DIR = REPO_ROOT / "results" / "nfmin_sweeps"
 
-jd = pd.read_csv(RESULTS_DIR / "pmos_geom_jd.txt", sep=r"\s+")
-nf = pd.read_csv(RESULTS_DIR / "pmos_geom_nf.txt", sep=r"\s+")
+jd = pd.read_csv(RESULTS_DIR / "pmos_geom_jd_L.txt", sep=r"\s+")
+nf = pd.read_csv(RESULTS_DIR / "pmos_geom_nf_L.txt", sep=r"\s+")
 
 data = pd.merge(jd, nf, on=["W_m", "L_m", "VSG"])
 
