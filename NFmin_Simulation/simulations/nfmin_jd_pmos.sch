@@ -1,9 +1,9 @@
-v {xschem version=3.4.8RC file_version=1.3}
+v {xschem version=3.4.5 file_version=1.2
+}
 G {}
 K {}
 V {}
 S {}
-F {}
 E {}
 N 320 -320 320 -290 {
 lab=GND}
@@ -57,18 +57,15 @@ N 740 -130 780 -130 {
 lab=d}
 C {vsource.sym} 400 -270 1 0 {name=VGS value=\{VG_BIAS\} savecurrent=false}
 C {gnd.sym} 740 -20 0 0 {name=l1 lab=GND}
-C {code_shown.sym} 200 40 0 0 {name=s1 only_toplevel=false value=".include /home/ttuser/xschem_projects/gf180_test/pmos_nfmin.spice"}
+C {code_shown.sym} 200 40 0 0 {name=s1 only_toplevel=false value="
+.include ../gf180mcu_pdk.inc
+.include ../pmos_nfmin.spice"}
 C {vsource.sym} 320 -350 0 0 {name=VDS value=\{VDDP\} savecurrent=false}
 C {ind.sym} 740 -80 2 0 {name=LDD
 m=1
 value=1u
 footprint=1206
 device=inductor}
-C {res.sym} 600 -210 3 0 {name=RG
-value=1G
-footprint=1206
-device=resistor
-m=1}
 C {capa.sym} 810 -130 3 0 {name=COUT
 m=1
 value=10p
@@ -113,3 +110,8 @@ spiceprefix=X
 }
 C {port_diff.sym} 140 -360 0 0 {name=V1 portnum=1 Z0=50 DCval=0 ACmag=1 ACphase=0 TRANval=""}
 C {port_diff.sym} 140 -210 0 0 {name=V2 portnum=2 Z0=50 DCval=0 ACmag=1 ACphase=0 TRANval=""}
+C {ind.sym} 600 -210 1 0 {name=LDD1
+m=1
+value=10u
+footprint=1206
+device=inductor}

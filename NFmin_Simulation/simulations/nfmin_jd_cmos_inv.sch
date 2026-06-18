@@ -1,9 +1,9 @@
-v {xschem version=3.4.8RC file_version=1.3}
+v {xschem version=3.4.5 file_version=1.2
+}
 G {}
 K {}
 V {}
 S {}
-F {}
 E {}
 N 340 -430 340 -400 {
 lab=GND}
@@ -68,13 +68,10 @@ lab=g}
 N 780 -400 820 -400 {
 lab=d}
 C {vsource.sym} 420 -380 1 0 {name=VCM value=\{VCM\} savecurrent=false}
-C {code_shown.sym} 220 -70 0 0 {name=s1 only_toplevel=false value=".include /home/ttuser/xschem_projects/gf180_test/inv_nfmin.spice"}
+C {code_shown.sym} 360 -190 0 0 {name=s1 only_toplevel=false value="
+.include ../gf180mcu_pdk.inc
+.include ../inv_nfmin.spice"}
 C {vsource.sym} 340 -460 0 0 {name=VVDD value=\{VDD\} savecurrent=false}
-C {res.sym} 630 -350 3 0 {name=RG
-value=1G
-footprint=1206
-device=resistor
-m=1}
 C {capa.sym} 890 -400 3 0 {name=COUT
 m=1
 value=10p
@@ -134,3 +131,8 @@ spiceprefix=X
 C {gnd.sym} 780 -190 0 0 {name=l2 lab=GND}
 C {port_diff.sym} 160 -470 0 0 {name=V1 portnum=1 Z0=50 DCval=0 ACmag=1 ACphase=0 TRANval=""}
 C {port_diff.sym} 160 -320 0 0 {name=V2 portnum=2 Z0=50 DCval=0 ACmag=1 ACphase=0 TRANval=""}
+C {ind.sym} 630 -350 1 0 {name=LDD1
+m=1
+value=10u
+footprint=1206
+device=inductor}
