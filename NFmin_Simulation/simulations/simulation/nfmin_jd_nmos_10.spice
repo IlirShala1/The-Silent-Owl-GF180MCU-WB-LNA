@@ -1,7 +1,5 @@
-** sch_path: /media/sf_LNA_chipathon/The-Silent-Owl-GF180MCU-WB-LNA/NFmin_Simulation/simulations/03v0/nfmin_jd_nmos.sch
-**.subckt nfmin_jd_nmos
-XM1 d g GND GND nfet_03v3 L={L} W={W} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+** sch_path: /media/sf_LNA_chipathon/The-Silent-Owl-GF180MCU-WB-LNA/NFmin_Simulation/simulations/10v0/nfmin_jd_nmos_10.sch
+**.subckt nfmin_jd_nmos_10
 VGS vgdc GND {VBIAS}
 VDD vdcbias GND {VDS}
 LDD d vdcbias 1u m=1
@@ -10,6 +8,8 @@ CIN in g 10p m=1
 V1 in GND DC 0 AC 1 0 portnum 1 z0 50
 V2 out GND DC 0 AC 1 0 portnum 2 z0 50
 LDD1 g vgdc 10u m=1
+XM1 d g GND GND nfet_10v0_asym L={L} W={W} nf=1 ad='W * 1.48u' as='W * 0.48u' pd='2 * (W + 1.48u)' ps='2 * (W + 0.48u)' nrd=0 nrs=0
++ sa=0 sb=0 sd=0 m=1
 **** begin user architecture code
 
 .include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
@@ -18,9 +18,9 @@ LDD1 g vgdc 10u m=1
 .lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_typical
 .lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice moscap_typical
 .lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice diode_typical
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/smbb000149.ngspice typical
 
 .include /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_io/spice/gf180mcu_fd_io.spice
-
 
 
 
@@ -29,30 +29,30 @@ LDD1 g vgdc 10u m=1
 .param fnoicor=0
 .param sw_stat_mismatch=0
 
-.param VDS=1.8
-.param VBIAS=0.7
+.param VDS=5.0
+.param VBIAS=0.9
 
-.param W=0.22e-6
-.param L=0.28e-6
+.param W=4.00e-6
+.param L=0.60e-6
 
 .control
   set noaskquit
 
-  echo VDS_set_V W_m L_m VBIAS_set_V VGS_actual_V VDS_actual_V VBS_actual_V ID_A JD_mA_per_um Pdc_mW gm_S gds_S gm_ID_1_per_V ro_Ohm gmro inv_gm_Ohm NFmin_dB NF_dB Rn_Ohm SOpt_real SOpt_imag SOpt_mag > nmos03_cs_full_dense.txt
+  echo VDS_set_V W_m L_m VBIAS_set_V VGS_actual_V VDS_actual_V VBS_actual_V ID_A JD_mA_per_um Pdc_mW gm_S gds_S gm_ID_1_per_V ro_Ohm gmro inv_gm_Ohm NFmin_dB NF_dB Rn_Ohm SOpt_real SOpt_imag SOpt_mag > nmos10_cs_full_nom5v.txt
 
-  foreach vdsval 1.8 3.3
+  foreach vdsval 5.0
 
-    foreach wval 0.22e-6 1e-6 5e-6 10e-6 20e-6
+    foreach wval 4e-6 5e-6 10e-6 20e-6 50e-6
 
-      foreach lval 0.28e-6 0.36e-6 0.50e-6
+      foreach lval 0.60e-6 0.70e-6 1.00e-6
 
         setplot const
         let k = 0
 
-        while k <= 230
+        while k <= 400
 
           setplot const
-          let vgs = 0.35 + 0.005*k
+          let vgs = 0.50 + 0.005*k
 
           alterparam VDS = $vdsval
           alterparam W = $wval
@@ -102,7 +102,7 @@ LDD1 g vgdc 10u m=1
           let sopt_im = imag(SOpt)
           let sopt_mag = sqrt(sopt_re*sopt_re + sopt_im*sopt_im)
 
-          echo $vdsval $wval $lval $&vgs $vgs_op $vds_op $vbs_op $idn_op $jd_op $pdc_op $gm_op $gds_op $gm_id_op $ro_op $gmro_op $inv_gm_op $&nfmin_val $&nf_val $&rn_val $&sopt_re $&sopt_im $&sopt_mag >> nmos03_cs_full_dense.txt
+          echo $vdsval $wval $lval $&vgs $vgs_op $vds_op $vbs_op $idn_op $jd_op $pdc_op $gm_op $gds_op $gm_id_op $ro_op $gmro_op $inv_gm_op $&nfmin_val $&nf_val $&rn_val $&sopt_re $&sopt_im $&sopt_mag >> nmos10_cs_full_nom5v.txt
 
           destroy $curplot
 
