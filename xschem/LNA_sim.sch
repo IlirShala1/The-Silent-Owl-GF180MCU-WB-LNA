@@ -1,9 +1,9 @@
-v {xschem version=3.4.8RC file_version=1.3}
+v {xschem version=3.4.5 file_version=1.2
+}
 G {}
 K {}
 V {}
 S {}
-F {}
 E {}
 L 4 1330 -2210 1330 -2080 {}
 L 4 1330 -2060 1330 -1930 {}
@@ -43,7 +43,63 @@ T {Matching} 990 -2350 0 0 0.8 0.8 {}
 T {Bondwire} 2990 -1100 0 0 0.8 0.8 {}
 T {Pad} 3090 -820 0 0 0.8 0.8 {}
 T {Matching - Output} 2405 -1100 0 0 0.8 0.8 {}
-N 1040 -330 1040 -290 {lab=vddio
+N 1040 -330 1040 -290 {lab=vddio}
+T {Bandgap} 420 -2370 0 0 0.8 0.8 {}
+T {V2I} 850 -2370 0 0 0.8 0.8 {}
+T {~0.86 V} 1320 -1790 0 0 0.4 0.4 {}
+T {First Stage} 1730 -2410 0 0 0.8 0.8 {}
+T {Second Stage} 2230 -2400 0 0 0.8 0.8 {}
+T {Third Stage} 2710 -2400 0 0 0.8 0.8 {}
+T {Sources} 140 -1540 0 0 0.8 0.8 {}
+N 300 -1900 370 -1900 {lab=vdd_5v}
+N 240 -1900 300 -1900 {lab=vdd_5v}
+N 350 -1830 370 -1830 {lab=0}
+N 350 -1830 350 -1810 {lab=0}
+N 350 -1810 350 -1800 {lab=0}
+N 240 -1800 350 -1800 {lab=0}
+N 670 -1860 820 -1860 {lab=vp}
+N 900 -1750 900 -1730 {lab=0}
+N 940 -1750 940 -1680 {lab=#net1}
+N 900 -1950 900 -1910 {lab=vdd_5v}
+N 790 -2250 790 -2230 {
+lab=vdd_5v}
+N 790 -2260 790 -2250 {lab=vdd_5v}
+N 780 -1800 820 -1800 {lab=vn}
+N 780 -1800 780 -1570 {lab=vn}
+N 1000 -1830 1090 -1830 {lab=vref}
+N 780 -1570 1130 -1570 {lab=vn}
+N 1130 -1930 1130 -1860 {lab=vdd_5v}
+N 1130 -1800 1130 -1740 {lab=vdiode}
+N 1130 -1680 1130 -1570 {lab=vn}
+N 1130 -1570 1130 -1540 {lab=vn}
+N 1130 -1760 1380 -1760 {lab=vdiode}
+N 1280 -1760 1280 -1710 {lab=vdiode}
+N 1380 -1760 1380 -1720 {lab=vdiode}
+N 1130 -1830 1150 -1830 {lab=vdd_5v}
+N 1150 -1880 1150 -1830 {lab=vdd_5v}
+N 1130 -1880 1150 -1880 {lab=vdd_5v}
+N 1380 -1720 1380 -1540 {lab=vdiode}
+N 830 -2170 900 -2170 {lab=#net2}
+N 790 -2230 790 -2200 {lab=vdd_5v}
+N 770 -2170 790 -2170 {lab=vdd_5v}
+N 770 -2220 770 -2170 {lab=vdd_5v}
+N 770 -2220 790 -2220 {lab=vdd_5v}
+N 940 -2230 940 -2200 {lab=vdd_5v}
+N 940 -2270 940 -2240 {lab=vdd_5v}
+N 940 -2240 940 -2230 {lab=vdd_5v}
+N 940 -2170 970 -2170 {lab=vdd_5v}
+N 970 -2210 970 -2170 {lab=vdd_5v}
+N 940 -2210 970 -2210 {lab=vdd_5v}
+N 790 -2140 790 -2110 {lab=#net2}
+N 850 -2170 850 -2120 {lab=#net2}
+N 790 -2120 850 -2120 {lab=#net2}
+N 940 -2130 940 -2100 {lab=#net3}
+N 940 -2140 940 -2130 {lab=#net3}
+N 940 -2100 940 -1910 {lab=#net3}
+N 790 -2270 790 -2260 {lab=vdd_5v}
+N 300 -1450 300 -1410 {lab=vdd}
+N 170 -1450 170 -1410 {lab=vdd_5v}
+N 1950 -1690 1950 -1670 {lab=vin
 }
 N 1500 -1340 1500 -1170 {lab=cg_vin
 }
@@ -310,6 +366,8 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice diode_typical
 .include /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_io/spice/gf180mcu_fd_io.spice
 "
+spice_ignore=true} C {bandgap.sym} 520 -1760 0 0 {name=x3}
+C {gnd.sym} 240 -1800 0 0 {name=l10 lab=0
 }
 C {devices/code_shown.sym} 80 -200 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
