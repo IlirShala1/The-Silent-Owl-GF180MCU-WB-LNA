@@ -507,7 +507,7 @@ C {lab_pin.sym} 720 -230 2 0 {name=p2 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 720 -330 2 0 {name=p12 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 640 -570 0 0 {name=p16 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 810 -830 1 0 {name=p19 sig_type=std_logic lab=vss
-spice_ignore=true}
+}
 C {lab_pin.sym} 1260 -830 3 0 {name=p26 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 1370 -830 3 0 {name=p27 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 290 -270 1 0 {name=p3 sig_type=std_logic lab=vss}
