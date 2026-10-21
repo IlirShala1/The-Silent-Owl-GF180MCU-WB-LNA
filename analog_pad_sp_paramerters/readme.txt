@@ -1,4 +1,4 @@
-*****************************************
+﻿*****************************************
 * SSCS-Chipathon 2026                   *
 * Team: The Silent Owl - SSCS Chipathon *
 *****************************************
@@ -7,7 +7,7 @@
 * JUN-24-2026     *
 *******************
 This directory is for simulating the S-Parameters of 5V Analog ESD Pad for GF180mcuD
-Tools used: IIC-OSIC-TOOLS Docker Container by Dr.Herald Pretl
+Tools used: IIC-OSIC-TOOLS Docker Container by Dr.Harald Pretl
 
 NB: 
 ---

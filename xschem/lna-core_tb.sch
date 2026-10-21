@@ -5,17 +5,28 @@ V {}
 S {}
 F {}
 E {}
-N 480 -1080 480 -1040 {lab=vdd}
-N 300 -990 330 -990 {lab=rf_in_pad}
-N 300 -930 330 -930 {lab=vbias_csc}
-N 300 -910 330 -910 {lab=vbias_icg}
-N 300 -890 330 -890 {lab=vbias_cg}
-N 300 -870 330 -870 {lab=vbias_cs}
-N 300 -850 330 -850 {lab=vbias_cas}
-N 300 -830 330 -830 {lab=vbias_casc}
-N 300 -810 330 -810 {lab=vbias_buf}
-N 480 -780 480 -740 {lab=vss}
-N 630 -910 660 -910 {lab=rf_out_pad}
+N 2000 -1230 2000 -1190 {lab=vdd
+spice_ignore=true}
+N 1820 -1140 1850 -1140 {lab=rf_in_pad
+spice_ignore=true}
+N 1820 -1080 1850 -1080 {lab=vbias_csc
+spice_ignore=true}
+N 1820 -1060 1850 -1060 {lab=vbias_icg
+spice_ignore=true}
+N 1820 -1040 1850 -1040 {lab=vbias_cg
+spice_ignore=true}
+N 1820 -1020 1850 -1020 {lab=vbias_cs
+spice_ignore=true}
+N 1820 -1000 1850 -1000 {lab=vbias_cas
+spice_ignore=true}
+N 1820 -980 1850 -980 {lab=vbias_casc
+spice_ignore=true}
+N 1820 -960 1850 -960 {lab=vbias_buf
+spice_ignore=true}
+N 2000 -930 2000 -890 {lab=vss
+spice_ignore=true}
+N 2150 -1060 2180 -1060 {lab=rf_out_pad
+spice_ignore=true}
 N -200 -480 -200 -450 {
 lab=GND}
 N -200 -570 -200 -540 {
@@ -76,8 +87,6 @@ spice_ignore=short}
 N 80 -1370 120 -1370 {
 lab=rf_out_ext}
 N -200 -450 -200 -390 {lab=GND}
-N -680 -1370 -680 -1270 {
-lab=GND}
 N -680 -1350 -630 -1350 {
 lab=GND}
 N -570 -1350 -540 -1350 {
@@ -98,29 +107,29 @@ N -590 -1120 -560 -1120 {
 lab=vbias_cas}
 N -680 -1120 -650 -1120 {
 lab=GND}
-N -830 -1000 -800 -1000 {
-lab=vbias_buf}
-N -740 -1000 -680 -1000 {
-lab=GND}
-N -840 -1110 -810 -1110 {
-lab=vbias_icg}
-N -750 -1110 -680 -1110 {
-lab=GND}
 N -590 -1230 -560 -1230 {lab=vbias_cs}
 N -710 -1000 -710 -970 {
 lab=GND}
 N -710 -910 -710 -880 {
 lab=vbias_csc}
-N -590 -1020 -560 -1020 {
-lab=vbias_casc}
-N -680 -1020 -650 -1020 {
-lab=GND}
 N 230 -1440 280 -1440 {lab=rf_out_pad}
 N 280 -1440 280 -1370 {lab=rf_out_pad}
 N 120 -1440 170 -1440 {lab=rf_out_ext}
 N 120 -1440 120 -1370 {lab=rf_out_ext}
-C {lna_core.sym} 480 -910 0 0 {name=x1
-}
+N 430 -1040 430 -1000 {lab=vdd}
+N 430 -820 430 -780 {lab=vss}
+N 580 -950 610 -950 {lab=rf_out_pad}
+N 250 -950 280 -950 {lab=rf_in_pad}
+N 250 -850 280 -850 {lab=vbias_cas}
+N 250 -870 280 -870 {lab=vbias_cs}
+N 250 -890 280 -890 {lab=vbias_cg}
+N 250 -910 280 -910 {lab=g_cg}
+N 70 -740 70 -700 {lab=vss}
+N 70 -840 70 -800 {lab=g_cg}
+N -710 -1000 -680 -1000 {lab=GND}
+N -680 -1350 -680 -1270 {lab=GND}
+C {lna_core.sym} 2000 -1060 0 0 {name=x1
+spice_ignore=true}
 C {vsource.sym} -200 -510 0 0 {name=VDD value=\{VDD\} savecurrent=false}
 C {lab_pin.sym} -340 -840 2 0 {name=p5 sig_type=std_logic lab=rf_in_ext}
 C {lab_pin.sym} -340 -780 2 0 {name=p6 sig_type=std_logic lab=GND
@@ -153,18 +162,28 @@ C {lab_pin.sym} 15 -1095 2 0 {name=p65 sig_type=std_logic lab=rf_out_pad
 }
 C {vsource.sym} -138.75 -450 1 0 {name=VSS value=0 savecurrent=false}
 C {lab_pin.sym} -78.75 -450 2 0 {name=p73 sig_type=std_logic lab=vss}
-C {lab_pin.sym} 300 -990 0 0 {name=p1 sig_type=std_logic lab=rf_in_pad}
-C {lab_pin.sym} 300 -930 0 0 {name=p2 sig_type=std_logic lab=vbias_csc}
-C {lab_pin.sym} 300 -910 0 0 {name=p3 sig_type=std_logic lab=vbias_icg}
-C {lab_pin.sym} 300 -890 0 0 {name=p4 sig_type=std_logic lab=vbias_cg}
-C {lab_pin.sym} 300 -870 0 0 {name=p11 sig_type=std_logic lab=vbias_cs}
-C {lab_pin.sym} 300 -850 0 0 {name=p13 sig_type=std_logic lab=vbias_cas}
-C {lab_pin.sym} 300 -830 0 0 {name=p14 sig_type=std_logic lab=vbias_casc}
-C {lab_pin.sym} 300 -810 0 0 {name=p15 sig_type=std_logic lab=vbias_buf}
-C {lab_pin.sym} 480 -1080 1 0 {name=p16 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} 480 -740 3 0 {name=p17 sig_type=std_logic lab=vss}
-C {lab_pin.sym} 660 -910 2 0 {name=p18 sig_type=std_logic lab=rf_out_pad
-}
+C {lab_pin.sym} 1820 -1140 0 0 {name=p1 sig_type=std_logic lab=rf_in_pad
+spice_ignore=true}
+C {lab_pin.sym} 1820 -1080 0 0 {name=p2 sig_type=std_logic lab=vbias_csc
+spice_ignore=true}
+C {lab_pin.sym} 1820 -1060 0 0 {name=p3 sig_type=std_logic lab=vbias_icg
+spice_ignore=true}
+C {lab_pin.sym} 1820 -1040 0 0 {name=p4 sig_type=std_logic lab=vbias_cg
+spice_ignore=true}
+C {lab_pin.sym} 1820 -1020 0 0 {name=p11 sig_type=std_logic lab=vbias_cs
+spice_ignore=true}
+C {lab_pin.sym} 1820 -1000 0 0 {name=p13 sig_type=std_logic lab=vbias_cas
+spice_ignore=true}
+C {lab_pin.sym} 1820 -980 0 0 {name=p14 sig_type=std_logic lab=vbias_casc
+spice_ignore=true}
+C {lab_pin.sym} 1820 -960 0 0 {name=p15 sig_type=std_logic lab=vbias_buf
+spice_ignore=true}
+C {lab_pin.sym} 2000 -1230 1 0 {name=p16 sig_type=std_logic lab=vdd
+spice_ignore=true}
+C {lab_pin.sym} 2000 -890 3 0 {name=p17 sig_type=std_logic lab=vss
+spice_ignore=true}
+C {lab_pin.sym} 2180 -1060 2 0 {name=p18 sig_type=std_logic lab=rf_out_pad
+spice_ignore=true}
 C {ind.sym} 460 -1220 1 0 {name=LBW_IN
 m=1
 value=\{L_BW\}
@@ -1146,14 +1165,8 @@ C {vsource.sym} -620 -1230 1 0 {name=VBCS value=\{VBIAS_CS\} savecurrent=false}
 C {lab_pin.sym} -560 -1230 2 0 {name=p24 sig_type=std_logic lab=vbias_cs}
 C {vsource.sym} -620 -1120 1 0 {name=VBCS1 value=\{VBIAS_CAS\} savecurrent=false}
 C {lab_pin.sym} -560 -1120 2 0 {name=p49 sig_type=std_logic lab=vbias_cas}
-C {vsource.sym} -770 -1000 3 0 {name=VBCS2 value=\{VBIAS_BUF\} savecurrent=false}
-C {lab_pin.sym} -830 -1000 0 0 {name=p53 sig_type=std_logic lab=vbias_buf}
-C {vsource.sym} -780 -1110 3 0 {name=VBCS3 value=\{VBIAS_ICG\} savecurrent=false}
-C {lab_pin.sym} -840 -1110 0 0 {name=p54 sig_type=std_logic lab=vbias_icg}
 C {vsource.sym} -710 -940 2 0 {name=VBCS4 value=\{VBIAS_CSC\} savecurrent=false}
 C {lab_pin.sym} -710 -880 3 0 {name=p35 sig_type=std_logic lab=vbias_csc}
-C {vsource.sym} -620 -1020 1 0 {name=VBCS5 value=\{VBIAS_CASC\} savecurrent=false}
-C {lab_pin.sym} -560 -1020 2 0 {name=p67 sig_type=std_logic lab=vbias_casc}
 C {code_shown.sym} 1350 -990 0 0 {name=s2 only_toplevel=false value="
 .param VBIAS_CAS_CG=3.30
 
@@ -1219,3 +1232,16 @@ wrs2p /foss/designs/lna_core_tb.s2p
 .endc
 "
 spice_ignore=true}
+C {lna_core_parts.sym} 430 -910 0 0 {name=x4}
+C {lab_pin.sym} 430 -1040 1 0 {name=p9 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 430 -780 3 0 {name=p12 sig_type=std_logic lab=vss}
+C {lab_pin.sym} 610 -950 2 0 {name=p19 sig_type=std_logic lab=rf_out_pad
+}
+C {lab_pin.sym} 250 -950 0 0 {name=p20 sig_type=std_logic lab=rf_in_pad}
+C {lab_pin.sym} 250 -850 0 0 {name=p23 sig_type=std_logic lab=vbias_cas}
+C {lab_pin.sym} 250 -870 0 0 {name=p26 sig_type=std_logic lab=vbias_cs}
+C {lab_pin.sym} 250 -890 0 0 {name=p28 sig_type=std_logic lab=vbias_cg}
+C {lab_pin.sym} 250 -910 0 0 {name=p29 sig_type=std_logic lab=g_cg}
+C {vsource.sym} 70 -770 0 0 {name=V3 value=1 savecurrent=false}
+C {lab_pin.sym} 70 -700 3 0 {name=p30 sig_type=std_logic lab=vss}
+C {lab_pin.sym} 70 -840 0 0 {name=p31 sig_type=std_logic lab=g_cg}
